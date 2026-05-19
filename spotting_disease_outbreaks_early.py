@@ -1072,7 +1072,7 @@ business_goals = {
 
 print("\nBusiness Performance Goal:")
 for goal, target in business_goals.items():
-print(f"      - {goal}: {target}")
+    print(f"      - {goal}: {target}")
 
 print("\n Actual Performance vs Business Goals:")
 print("_" * 100)
