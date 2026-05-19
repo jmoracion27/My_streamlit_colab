@@ -823,7 +823,7 @@ y_pred_lr = lr_model.predict(X_test)
 
 print("Baseline models trained for comparison")
 
-def calculate_metrics(y_true, y_pred, model_name):
+def evaluate_predictions(y_true, y_pred, model_name):
     mae = mean_absolute_error(y_true, y_pred)
     mse = mean_squared_error(y_true, y_pred)
     rmse = np.sqrt(mse)
