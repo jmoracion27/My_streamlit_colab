@@ -815,7 +815,7 @@ plt.show()
 
 y_pred_mean = [y_train.mean()] * len(y_test)
 
-  y_pred_naive = [y_train.iloc[-1]] * len(y_test)
+y_pred_naive = [y_train.iloc[-1]] * len(y_test)
 
   lr_model = LinearRegression()
   lr_model.fit(X_train, y_train)
