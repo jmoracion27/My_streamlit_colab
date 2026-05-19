@@ -830,7 +830,7 @@ def evaluate_predictions(y_true, y_pred, model_name):
     r2 = r2_score(y_true, y_pred)
     explained_var = explained_variance_score(y_true, y_pred)
 
-  non_zero_mask = y_true !=0
+    non_zero_mask = y_true !=0
   if non_zero_mask.sum() > 0:
     mape = np.mean(np.abs((y_true[non_zero_mask] - y_pred[non_zero_mask]) / y_true[non_zero_mask])) * 100
   else:
