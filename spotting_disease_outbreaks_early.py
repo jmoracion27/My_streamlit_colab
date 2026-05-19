@@ -576,21 +576,21 @@ for name, model in models.items():
   rmmse = np.sqrt(mean_squared_error(y_val, y_pred))
   r2 = r2_score(y_val, y_pred)
 
-  result[name] = {'MAE': mae, 'RMSE': rmmse, 'R2': r2, 'model': model}
+result[name] = {'MAE': mae, 'RMSE': rmmse, 'R2': r2, 'model': model}
 
-  print(f"\n{name}:")
-  print(f"    MAE: {mae:.4f}")
-  print(f"    RMSE: {rmmse:.4f}")
-  print(f"    R2: {r2:.4f}")
+print(f"\n{name}:")
+print(f"    MAE: {mae:.4f}")
+print(f"    RMSE: {rmmse:.4f}")
+print(f"    R2: {r2:.4f}")
 
 print("\n" + "-"*100)
 print("BASELINE RESULTS (for comparison)")
 print("_"*100)
 for name, metrics in baseline_results.items():
-  print(f"\n{name}:")
-  print(f"    MAE: {metrics['MAE']:.4f}")
-  print(f"    RMSE: {metrics['RMSE']:.4f}")
-  print(f"    R2: {metrics['R2']:.4f}")
+print(f"\n{name}:")
+print(f"    MAE: {metrics['MAE']:.4f}")
+print(f"    RMSE: {metrics['RMSE']:.4f}")
+print(f"    R2: {metrics['R2']:.4f}")
 
 """**Compare Model Performance**"""
 
@@ -1072,7 +1072,7 @@ business_goals = {
 
 print("\nBusiness Performance Goal:")
 for goal, target in business_goals.items():
-  print(f"      - {goal}: {target}")
+print(f"      - {goal}: {target}")
 
 print("\n Actual Performance vs Business Goals:")
 print("_" * 100)
