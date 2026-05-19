@@ -86,7 +86,7 @@ from statsmodels.tsa.holtwinters import ExponentialSmoothing
 from scipy import stats
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, roc_curve
 
-df = pd.read_csv('/content/disease_pidsr_totals.csv')
+df = pd.read_csv('disease_pidsr_totals.csv')
 df.head(20)
 
 """**Basic Data Inspection**"""
