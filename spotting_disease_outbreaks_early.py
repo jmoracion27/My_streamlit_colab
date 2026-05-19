@@ -587,10 +587,10 @@ print("\n" + "-"*100)
 print("BASELINE RESULTS (for comparison)")
 print("_"*100)
 for name, metrics in baseline_results.items():
-print(f"\n{name}:")
-print(f"    MAE: {metrics['MAE']:.4f}")
-print(f"    RMSE: {metrics['RMSE']:.4f}")
-print(f"    R2: {metrics['R2']:.4f}")
+    print(f"\n{name}:")
+    print(f"    MAE: {metrics['MAE']:.4f}")
+    print(f"    RMSE: {metrics['RMSE']:.4f}")
+    print(f"    R2: {metrics['R2']:.4f}")
 
 """**Compare Model Performance**"""
 
