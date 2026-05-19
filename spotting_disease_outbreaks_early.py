@@ -815,13 +815,13 @@ plt.show()
 
 y_pred_mean = [y_train.mean()] * len(y_test)
 
-  y_pred_naive = [y_train.iloc[-1]] * len(y_test)
+y_pred_naive = [y_train.iloc[-1]] * len(y_test)
 
-  lr_model = LinearRegression()
-  lr_model.fit(X_train, y_train)
-  y_pred_lr = lr_model.predict(X_test)
+lr_model = LinearRegression()
+lr_model.fit(X_train, y_train)
+y_pred_lr = lr_model.predict(X_test)
 
-  print("Baseline models trained for comparison")
+print("Baseline models trained for comparison")
 
 def calculate_metrics(y_true, y_pred, model_name):
   mae = mean_absolute_error(y_true, y_pred)
