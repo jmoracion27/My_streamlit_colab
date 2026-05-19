@@ -815,22 +815,22 @@ plt.show()
 
 y_pred_mean = [y_train.mean()] * len(y_test)
 
-y_pred_naive = [y_train.iloc[-1]] * len(y_test)
+  y_pred_naive = [y_train.iloc[-1]] * len(y_test)
 
-lr_model = LinearRegression()
-lr_model.fit(X_train, y_train)
-y_pred_lr = lr_model.predict(X_test)
+  lr_model = LinearRegression()
+  lr_model.fit(X_train, y_train)
+  y_pred_lr = lr_model.predict(X_test)
 
-print("Baseline models trained for comparison")
+  print("Baseline models trained for comparison")
 
-def evaluate_predictions(y_true, y_pred, model_name):
-    mae = mean_absolute_error(y_true, y_pred)
-    mse = mean_squared_error(y_true, y_pred)
-    rmse = np.sqrt(mse)
-    r2 = r2_score(y_true, y_pred)
-    explained_var = explained_variance_score(y_true, y_pred)
+def calculate_metrics(y_true, y_pred, model_name):
+  mae = mean_absolute_error(y_true, y_pred)
+  mse = mean_squared_error(y_true, y_pred)
+  rmse = np.sqrt(mse)
+  r2 = r2_score(y_true, y_pred)
+  explained_var = explained_variance_score(y_true, y_pred)
 
-    non_zero_mask = y_true !=0
+  non_zero_mask = y_true !=0
   if non_zero_mask.sum() > 0:
     mape = np.mean(np.abs((y_true[non_zero_mask] - y_pred[non_zero_mask]) / y_true[non_zero_mask])) * 100
   else:
