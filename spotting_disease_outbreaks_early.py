@@ -77,7 +77,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import SelectKBest, f_regression, mutual_info_regression
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, mean_absolute_percentage_error, explained_variance_score
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, mean_absolute_percentage_error, explained_variance_score, roc_auc_score
 from xgboost import XGBRegressor
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
@@ -86,7 +86,7 @@ from statsmodels.tsa.holtwinters import ExponentialSmoothing
 from scipy import stats
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, roc_curve
 
-df = pd.read_csv('disease_pidsr_totals.csv')
+df = pd.read_csv('/content/disease_pidsr_totals.csv')
 df.head(20)
 
 """**Basic Data Inspection**"""
@@ -341,7 +341,7 @@ label_encoders = {}
 for col in ['adm3_pcode', 'disease_icd10_code']:
     le = LabelEncoder()
     df[f'{col}_encoded'] = le.fit_transform(df[col].astype(str))
-    label_encoders[col] = len
+    label_encoders[col] = le
     print(f"Encoded {col} into{df[f'{col}_encoded'].nunique()} unique integers")
 
 disease_dummies = pd.get_dummies(df['disease_common_name'], prefix='disease')
@@ -815,13 +815,13 @@ plt.show()
 
 y_pred_mean = [y_train.mean()] * len(y_test)
 
-y_pred_naive = [y_train.iloc[-1]] * len(y_test)
+  y_pred_naive = [y_train.iloc[-1]] * len(y_test)
 
-lr_model = LinearRegression()
-lr_model.fit(X_train, y_train)
-y_pred_lr = lr_model.predict(X_test)
+  lr_model = LinearRegression()
+  lr_model.fit(X_train, y_train)
+  y_pred_lr = lr_model.predict(X_test)
 
-print("Baseline models trained for comparison")
+  print("Baseline models trained for comparison")
 
 def calculate_metrics(y_true, y_pred, model_name):
   mae = mean_absolute_error(y_true, y_pred)
@@ -1015,7 +1015,7 @@ accuracy = accuracy_score(y_test_binary, y_pred_binary)
 precision = precision_score(y_test_binary, y_pred_binary, zero_division=0)
 recall = recall_score(y_test_binary, y_pred_binary, zero_division=0)
 f1 = f1_score(y_test_binary, y_pred_binary, zero_division=0)
-y_pred_proba = best_xgb.predict_proba(X_test)[:, 1] if hasattr(best_xgb, 'predict_proba') else None
+y_pred_proba = y_pred_test
 
 print(f"\nClassification Metrics (Outbreak Detection):")
 print(f"    - Accuracy: {accuracy:.4f} ({accuracy*100:.1f}%)")
